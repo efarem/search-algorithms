@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "version": "0.0.0-sematically-released",
   "scripts": {
-    "commit": "git-cz"
+    "commit": "git-cz",
     "test": "mocha tests/**/*.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -39,7 +39,9 @@
     "semantic-release": "^4.3.5",
     "webpack": "1.13.1"
   },
-  "czConfig": {
-    "path": "node_modules/cz-conventional-changelog"
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }

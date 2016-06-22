@@ -1,13 +1,16 @@
-module.exports = function search(needle, haystack, property) {
+function search(needle, haystack, compare) {
   var midpoint = Math.floor(haystack.length / 2);
+  var result = compare(needle, haystack[midpoint]);
 
-  if (haystack[midpoint][property] === needle) {
+  if (result === 0) {
     return haystack[midpoint];
-  } else if (needle < haystack[midpoint][property]) {
-    return search(needle, haystack.splice(0, midpoint), property);
-  } else if (needle > haystack[midpoint][property]) {
-    return search(needle, haystack.splice(midpoint + 1, haystack.length), property);
+  } else if (result === -1) {
+    return search(needle, haystack.splice(0, midpoint), compare);
+  } else if (result === 1) {
+    return search(needle, haystack.splice(midpoint + 1, haystack.length), compare);
   }
 
   return null;
-};
+}
+
+module.exports = search;
