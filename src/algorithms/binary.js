@@ -5,9 +5,9 @@ function search(needle, haystack, compare) {
   if (result === 0) {
     return haystack[midpoint];
   } else if (result === -1) {
-    return search(needle, haystack.splice(0, midpoint), compare);
+    return (haystack.length === 1) ? null : search(needle, haystack.splice(0, midpoint), compare);
   } else if (result === 1) {
-    return search(needle, haystack.splice(midpoint + 1, haystack.length), compare);
+    return (haystack.length === 1) ? null : search(needle, haystack.splice(midpoint + 1, haystack.length), compare);
   }
 
   return null;
