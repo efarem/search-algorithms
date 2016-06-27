@@ -1,16 +1,40 @@
-function search(needle, haystack, compare) {
-  var midpoint = Math.floor(haystack.length / 2);
-  var result = compare(needle, haystack[midpoint]);
+function compareInts(value, subject) {
+  if (value > subject) {
+    return 1;
+  } else if (value < subject) {
+    return -1;
+  }
+  return 0;
+}
+
+function compareObjectId(value, subject) {
+  if (value > subject.id) {
+    return 1;
+  } else if (value < subject.id) {
+    return -1;
+  }
+  return 0;
+}
+
+function search(needle, haystack, compare = compareInts) {
+  const midpoint = Math.floor(haystack.length / 2);
+  const result = compare(needle, haystack[midpoint]);
 
   if (result === 0) {
     return haystack[midpoint];
   } else if (result === -1) {
-    return (haystack.length === 1) ? null : search(needle, haystack.splice(0, midpoint), compare);
+    const newHaystack = haystack.splice(0, midpoint);
+    return (haystack.length === 1) ? null : search(needle, newHaystack, compare);
   } else if (result === 1) {
-    return (haystack.length === 1) ? null : search(needle, haystack.splice(midpoint + 1, haystack.length), compare);
+    const newHaystack = haystack.splice(midpoint + 1, haystack.length);
+    return (haystack.length === 1) ? null : search(needle, newHaystack, compare);
   }
 
   return null;
 }
 
-module.exports = search;
+module.exports = {
+  search,
+  compareInts,
+  compareObjectId,
+};

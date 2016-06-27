@@ -1,3 +1,3 @@
-module.exports = {
-  binary: require('./algorithms/binary.js'),
-};
+import binary from './algorithms/binary.js';
+
+module.exports = { binary };
