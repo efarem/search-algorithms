@@ -3,6 +3,7 @@
 [![Travis Build](https://img.shields.io/travis/efarem/searchesmun.svg?style=flat-square)](https://travis-ci.org/efarem/searchesmun)
 [![Codecov coverage](https://img.shields.io/codecov/c/github/efarem/searchesmun.svg?style=flat-square)]()
 [![NPM Version](https://img.shields.io/npm/v/searchesmun.svg?style=flat-square)](https://www.npmjs.com/package/searchesmun)
+[![bitHound Overall Score](https://www.bithound.io/github/efarem/searchesmun/badges/score.svg)](https://www.bithound.io/github/efarem/searchesmun)
 
 A JavaScript library for all of your favorite search algorithms.
 
